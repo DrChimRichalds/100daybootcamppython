@@ -4,6 +4,8 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/.venv" />
       <excludeFolder url="file://$MODULE_DIR$/Day_36/.venv" />
+      <excludeFolder url="file://$MODULE_DIR$/Day_34/.venv" />
+      <excludeFolder url="file://$MODULE_DIR$/Day_37/.venv" />
     </content>
     <orderEntry type="jdk" jdkName="~/PycharmProjects/100daybootcamppython/.venv" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
