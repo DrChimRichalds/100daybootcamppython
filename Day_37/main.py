@@ -12,16 +12,16 @@ Pixela_Params ={
    # "thanksCode":"ThisIsThanksCode"
 }
 
-# pixela = requests.post(url = pixela_endpoint, json =Pixela_Params)
-
+#pixela = requests.get(url = pixela_endpoint, json =Pixela_Params)
+#
 # print(pixela)
 
 #example message{"message":"Success. Let's visit https://pixe.la/@a-know , it is your profile page!","isSuccess":true}
 
-graph_endpoint = f"https://pixe.la/v1/users/{username}/graphs"
+graph_endpoint = f"{pixela_endpoint}/{username}/graphs"
 
 graph_params = {
-    "id":"test-graph",
+    "id":"graph1",
     "name":"graph-name",
     "unit":"commit",
     "type":"int",
@@ -33,8 +33,7 @@ graph_params = {
 }
 
 headers = {
-    "X-USER-TOKEN": token,
+    "X-USER-TOKEN": token
 }
 graph_response = requests.post(url = graph_endpoint, json =graph_params, headers = headers)
-graph_response.raise_for_status()
 print(graph_response.text)
