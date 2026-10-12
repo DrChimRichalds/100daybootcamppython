@@ -17,9 +17,9 @@ Pixela_Params ={
 # print(pixela)
 
 #example message{"message":"Success. Let's visit https://pixe.la/@a-know , it is your profile page!","isSuccess":true}
-
-graph_endpoint = f"{pixela_endpoint}/{username}/graphs"
-
+#
+# graph_endpoint = f"{pixela_endpoint}/{username}/graphs"
+#
 graph_params = {
     "id":"graph1",
     "name":"graph-name",
@@ -35,5 +35,18 @@ graph_params = {
 headers = {
     "X-USER-TOKEN": token
 }
-graph_response = requests.post(url = graph_endpoint, json =graph_params, headers = headers)
-print(graph_response.text)
+# graph_response = requests.post(url = graph_endpoint, json =graph_params, headers = headers)
+# print(graph_response.text)
+
+
+##### Post a pixel ######
+pixela_add_data_endpont = f"{pixela_endpoint}/{username}/graphs/{graph_params['id']}"
+
+
+pixel_add_params = {
+    "date":"20261011",
+    "quantity":"5",
+    "optionalData":"{\"key\":\"value\"}"
+}
+Pixel_post_response = requests.post(url = pixela_add_data_endpont, json =pixel_add_params, headers = headers)
+print(Pixel_post_response.text)
