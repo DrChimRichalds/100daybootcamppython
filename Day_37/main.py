@@ -1,4 +1,5 @@
 import requests
+from datetime import datetime
 
 pixela_endpoint = "https://pixe.la/v1/users"
 token= "DV32DidUNwko46vassdf"
@@ -44,9 +45,22 @@ pixela_add_data_endpont = f"{pixela_endpoint}/{username}/graphs/{graph_params['i
 
 
 pixel_add_params = {
-    "date":"20261011",
+    "date":datetime.now().strftime("%Y/%m/%d"),
     "quantity":"5",
     "optionalData":"{\"key\":\"value\"}"
 }
-Pixel_post_response = requests.post(url = pixela_add_data_endpont, json =pixel_add_params, headers = headers)
-print(Pixel_post_response.text)
+
+
+# Pixel_post_response = requests.post(url = pixela_add_data_endpont, json =pixel_add_params, headers = headers)
+# print(Pixel_post_response.text)
+
+#pixela_update_data_endpont = f"{pixela_endpoint}/{username}/graphs/{graph_params['id']}/{datetime.now().strftime('%Y/%m/%d')}"
+pixela_update_data_endpont = f"{pixela_endpoint}/{username}/graphs/{graph_params['id']}/20261011"
+#pixela_update_data_endpont = f"{pixela_endpoint}/{username}/graphs/graph1/20261011"
+
+#### update a pixel ####
+pixel_update_params = {
+    "quantity":"20"
+}
+Pixel_update_response = requests.put(url = pixela_update_data_endpont, json =pixel_update_params, headers = headers)
+print(Pixel_update_response.text)
